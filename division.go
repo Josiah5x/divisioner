@@ -1,4 +1,4 @@
-package main
+package divisioner
 
 import (
 	"errors"
