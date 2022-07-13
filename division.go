@@ -1,6 +1,7 @@
-package divisioner
+package main
 
 import (
+	"errors"
 	"log"
 	"os"
 )
@@ -18,9 +19,17 @@ func Logging(opt bool) {
 }
 
 // this is a division which takes two parameter num1 & num2 float64 number
-func Division(num1, num2 float64) float64 {
-	log.SetPrefix("LOG: ")
-	log.Println("Answer=", num1/num2)
-	return num1 / num2
+// How to call the function, varName, Error then Division
+func Division(num1, num2 float64) (float64, error) {
+	if num2 == 0 {
+		log.SetPrefix("LOG: ")
+		log.Println("Can't divide by zero")
+		return float64(0), errors.New(("can't divide by zero"))
+	} else {
+
+		log.SetPrefix("LOG: ")
+		log.Println("Answer=", num1/num2)
+		return float64(num1 / num2), nil
+	}
 
 }
